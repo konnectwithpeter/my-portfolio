@@ -7,7 +7,9 @@ import {
   Modal,
   TextField,
   Link,
+  useMediaQuery,
 } from "@mui/material";
+import { makeStyles, useTheme } from "@mui/styles";
 import { useState } from "react";
 import { SendRounded } from "@mui/icons-material";
 
@@ -31,6 +33,9 @@ const Contact = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <>
       <Box
@@ -40,6 +45,7 @@ const Contact = () => {
           flexDirection: "column",
           justifyContent: "center",
           gap: "5rem",
+          marginTop: matches ? 0 : "5rem",
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -47,16 +53,17 @@ const Contact = () => {
             {"<h2>"}
           </Typography>
 
-          <Typography variant="h2">
+          <Typography variant={matches ? "h4" : "h2"}>
             Connect with me
             <sub style={{ fontSize: "16px", color: "#a3a2a4" }}>{"</h2>"}</sub>
           </Typography>
         </Box>
-        <Grid container sx={{ flex: 1, width: "100%" }}>
+        <Grid container sx={{ flex: 1, width: "100%" }} spacing={matches? 4:0}>
           <Grid
             item
             lg={3}
-            sx={{ display: "flex", justifyContent: "space-between" }}
+            sm={6}
+            sx={!matches&&{ display: "flex", justifyContent: "space-between" }}
           >
             <Box>
               <Button
@@ -83,7 +90,8 @@ const Contact = () => {
           <Grid
             item
             lg={3}
-            sx={{
+            sm={6}
+            sx={!matches&&{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "flex-end",
@@ -102,7 +110,7 @@ const Contact = () => {
                   <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
                     {"<>"}
                   </Typography>
-                  <Typography variant="h5">Mail</Typography>
+                  <Typography variant="h5">WatsAp</Typography>
                   <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
                     {"</>"}
                   </Typography>
@@ -113,7 +121,8 @@ const Contact = () => {
           <Grid
             item
             lg={3}
-            sx={{ display: "flex", justifyContent: "space-between" }}
+            sm={6}
+            sx={!matches&&{ display: "flex", justifyContent: "space-between" }}
           >
             <Box>
               <Button
@@ -136,14 +145,18 @@ const Contact = () => {
               </Button>
             </Box>
           </Grid>
+
           <Grid
             item
             lg={3}
-            sx={{
-              display: "flex",
-              justifyContent: "right",
-              alignItems: "flex-end",
-            }}
+            sm={6}
+            sx={
+              !matches&&{
+                    display: "flex",
+                    justifyContent: "right",
+                    alignItems: "flex-end",
+                  }
+            }
           >
             <Box>
               <Button
@@ -189,17 +202,11 @@ const Contact = () => {
           <Typography variant="h6" component="h2">
             Send an E-mail
           </Typography>
-          <Typography >
+          <Typography>
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
           </Typography>
-          <TextField
-            fullWidth
-            label="Message"
-            multiline
-            rows={4}
-            autoFocus
-          />
-          <Box sx={{display:"flex",justifyContent:"flex-end"}}>
+          <TextField fullWidth label="Message" multiline rows={4} autoFocus />
+          <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
             <Button variant="contained" endIcon={<SendRounded />}>
               Send
             </Button>

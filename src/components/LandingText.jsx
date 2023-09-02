@@ -6,93 +6,137 @@ import {
   Box,
   useMediaQuery,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { useTheme } from "@mui/styles";
 import { TypeAnimation } from "react-type-animation";
 import Typewriter from "typewriter-effect";
 import ReactTyped from "react-typed";
+import publicProfile from "../assets/images/fr4m3r.png";
+import Cvitae from "./Cvitae";
+import blob from "../assets/blobanimation.svg";
 
 const LandingText = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  let props = { open, handleClose };
+
   return (
-    <Grid container spacing={3} sx={{ maxWidth: "100vw" }}>
+    <>
       <Grid
-        item
-        lg={7}
-        xs={12}
-        sm={12}
-        md={7}
-        sx={{ display: "flex", flexDirection: "column", gap: "3rem" }}
+        container
+        spacing={3}
+        sx={{
+          maxWidth: "100vw",
+          marginTop: matches ? "3rem" : 0,
+          marginBottom: matches ? "3rem" : 0,
+        }}
       >
-        <Typography sx={{ color: "#019e36" }}>
-          <span style={{ color: "#a3a2a4" }}>{"<p>"}</span>
-          <ReactTyped
-            strings={["This is"]}
-            typeSpeed={100}
-            loop={false}
-            showCursor={false}
-          />
-          <span style={{ color: "#a3a2a4" }}>{"</p>"}</span>
-        </Typography>
-        <Typography variant={matches ? "h3" : "h1"} sx={{ color: "#185b33" }}>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              marginLeft: "2rem",
-            }}
-          >
-            <span style={{ fontSize: "16px", color: "#a3a2a4" }}>{"<h1>"}</span>
-            <span style={{ marginLeft: "2rem", fontStyle: "bold" }}>Peter</span>
-            <span style={{ marginLeft: "2rem", fontWeight: "bold" }}>
-              Njoroge
+        <Grid
+          item
+          lg={7}
+          xs={12}
+          sm={12}
+          md={7}
+          sx={{ display: "flex", flexDirection: "column", gap: "3rem" }}
+        >
+          <Typography sx={{ color: "#019e36" }}>
+            <span style={{ color: "#a3a2a4" }}>{"<p>"}</span>
+            <ReactTyped
+              strings={["This is"]}
+              typeSpeed={100}
+              loop={false}
+              showCursor={false}
+            />
+            <span style={{ color: "#a3a2a4" }}>{"</p>"}</span>
+          </Typography>
+          <Typography variant={matches ? "h3" : "h1"} sx={{ color: "#185b33" }}>
+            <span
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "2rem",
+              }}
+            >
+              <span style={{ fontSize: "16px", color: "#a3a2a4" }}>
+                {"<h1>"}
+              </span>
+              <span style={{ marginLeft: "2rem", fontStyle: "bold" }}>
+                Peter
+              </span>
+              <span style={{ marginLeft: "2rem", fontWeight: "bold" }}>
+                Njoroge
+              </span>
+              <span style={{ color: "#a3a2a4", fontSize: "16px" }}>
+                {"</h1>"}
+              </span>
             </span>
-            <span style={{ color: "#a3a2a4", fontSize: "16px" }}>
-              {"</h1>"}
-            </span>
-          </span>
-        </Typography>
-        <Typography style={{ color: "#a3a2a4" }}>
-          {"<h2>"}
-          <span style={{ color: "#019e36" }}>Entreprenuer an Developer</span>
-          {"</h2>"}
-        </Typography>
-      </Grid>
-      <Grid
-        item
-        lg={5}
-        xs={12}
-        sm={12}
-        md={5}
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-      >
-        <Button
-          variant="outlined"
-          className="rotate-scale-up"
+          </Typography>
+          <Typography style={{ color: "#a3a2a4" }}>
+            {"<h2>"}
+            <b style={{ color: "#019e36" }}>
+              Web App Developer and Cyber Security enthusiast
+            </b>
+            {"</h2>"}
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          lg={5}
+          xs={12}
+          sm={12}
+          md={5}
           sx={{
-            borderRadius: "50%",
-            padding: "2rem",
-            textTransform: "none !important",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <div>
-            <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
-              {"<>"}
-            </Typography>
-            <Typography variant="h5">
-              Download
-              <br /> CV
-            </Typography>
-            <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
-              {"</>"}
-            </Typography>
+          <img
+            src={blob}
+            alt="blob"
+            style={{
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              maxWidth: "50%",
+              maxHeight: "50%",
+              position: "absolute",
+              zIndex: 1,
+              opacity: 0.3,
+            }}
+          />
+          <div style={{ zIndex: 10 }}>
+            {/* <img src={publicProfile} alt="TryHackMe" /> */}
+
+            <Button
+              variant="outlined"
+              onClick={handleOpen}
+              sx={{
+                borderRadius: "50%",
+                padding: "2rem",
+                textTransform: "none !important",
+              }}
+            >
+              <div style={{ paddingTop: "1.2rem", paddingBottom: "1.2rem" }}>
+                <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
+                  {"<>"}
+                </Typography>
+                <Typography variant="h4">View CV</Typography>
+                <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
+                  {"</>"}
+                </Typography>
+              </div>
+            </Button>
           </div>
-        </Button>
+        </Grid>
       </Grid>
-    </Grid>
+      <Cvitae {...props} />
+    </>
   );
 };
 

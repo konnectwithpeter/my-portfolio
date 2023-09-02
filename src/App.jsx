@@ -39,8 +39,10 @@ function App() {
               padding: "5rem",
               backgroundColor: "#020404",
               color: "#f5f5f5",
+              display: "flex",
+              flexDirection: "column",
+              gap: "2rem",
             }
-            
       }
     >
       <TitleBar />
@@ -50,7 +52,7 @@ function App() {
         viewport={{ once: true }}
         transition={{
           duration: 0.8,
-          delay: 0.25,
+          delay: 0.2,
           ease: [0, 0.71, 0.2, 1.01],
         }}
       >
@@ -62,7 +64,7 @@ function App() {
         viewport={{ once: true }}
         transition={{
           duration: 0.8,
-          delay: 0.5,
+          delay: 0.25,
           ease: [0, 0.71, 0.2, 1.01],
         }}
       >
@@ -74,7 +76,7 @@ function App() {
         viewport={{ once: true }}
         transition={{
           duration: 0.8,
-          delay: 0.5,
+          delay: 0.25,
           ease: [0, 0.71, 0.2, 1.01],
         }}
       >
@@ -86,7 +88,7 @@ function App() {
         viewport={{ once: true }}
         transition={{
           duration: 0.8,
-          delay: 0.5,
+          delay: 0.25,
           ease: [0, 0.71, 0.2, 1.01],
         }}
       >
