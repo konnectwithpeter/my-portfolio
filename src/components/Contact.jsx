@@ -106,7 +106,7 @@ const Contact = () => {
                     padding: matches ? "1rem" : "2rem",
                     textTransform: "none !important",
                   }}
-                  onClick={handleOpen}
+                 onClick={() => window.location = 'mailto:konnectwithpeter@gmail.com'}
                 >
                   <div>
                     <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
