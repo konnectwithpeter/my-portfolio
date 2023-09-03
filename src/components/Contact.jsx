@@ -45,7 +45,8 @@ const Contact = () => {
           flexDirection: "column",
           justifyContent: "center",
           gap: "5rem",
-          marginTop: matches ? 0 : "5rem",
+          marginTop: matches ? "3rem" : 0,
+          padding: matches ? "1rem" : 0,
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -53,24 +54,83 @@ const Contact = () => {
             {"<h2>"}
           </Typography>
 
-          <Typography variant={matches ? "h4" : "h2"}>
-            Connect with me
+          <Typography variant={matches ? "h3" : "h2"}>
+            Connect
             <sub style={{ fontSize: "16px", color: "#a3a2a4" }}>{"</h2>"}</sub>
           </Typography>
         </Box>
-        <Grid container sx={{ flex: 1, width: "100%" }} spacing={matches? 4:0}>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            sx={!matches&&{ display: "flex", justifyContent: "space-between" }}
+        <Box
+          sx={
+            matches
+              ? {
+                  width: "100%",
+                  // border: "1px solid red",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  gap: "3rem",
+                }
+              : {
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-around",
+                }
+          }
+        >
+          <Box
+            sx={
+              matches
+                ? {
+                    display: "flex",
+                    justifyContent: "space-between",
+                  }
+                : { width: "50%" }
+            }
           >
             <Box>
+              <Box
+                sx={
+                  matches
+                    ? {
+                        display: "flex",
+                        justifyContent: "center",
+                      }
+                    : {}
+                }
+              >
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "50%",
+                    padding: matches ? "1rem" : "2rem",
+                    textTransform: "none !important",
+                  }}
+                  onClick={handleOpen}
+                >
+                  <div>
+                    <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
+                      {"<>"}
+                    </Typography>
+                    <Typography variant="h5">E-Mail</Typography>
+                    <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
+                      {"</>"}
+                    </Typography>
+                  </div>
+                </Button>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <Button
                 variant="outlined"
                 sx={{
                   borderRadius: "50%",
-                  padding: "2rem",
+                  padding: matches ? "1rem" : "2rem",
                   textTransform: "none !important",
                 }}
                 onClick={handleOpen}
@@ -86,84 +146,64 @@ const Contact = () => {
                 </div>
               </Button>
             </Box>
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            sx={!matches&&{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-end",
-            }}
-          >
-            <Box>
-              <Button
-                variant="outlined"
-                sx={{
-                  borderRadius: "50%",
-                  padding: "2rem",
-                  textTransform: "none !important",
-                }}
-              >
-                <div>
-                  <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
-                    {"<>"}
-                  </Typography>
-                  <Typography variant="h5">WatsAp</Typography>
-                  <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
-                    {"</>"}
-                  </Typography>
-                </div>
-              </Button>
-            </Box>
-          </Grid>
-          <Grid
-            item
-            lg={3}
-            sm={6}
-            sx={!matches&&{ display: "flex", justifyContent: "space-between" }}
-          >
-            <Box>
-              <Button
-                variant="outlined"
-                sx={{
-                  borderRadius: "50%",
-                  padding: "2rem",
-                  textTransform: "none !important",
-                }}
-              >
-                <div>
-                  <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
-                    {"<>"}
-                  </Typography>
-                  <Typography variant="h5">Github</Typography>
-                  <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
-                    {"</>"}
-                  </Typography>
-                </div>
-              </Button>
-            </Box>
-          </Grid>
-
-          <Grid
-            item
-            lg={3}
-            sm={6}
+          </Box>
+          <Box
             sx={
-              !matches&&{
+              matches
+                ? {
                     display: "flex",
-                    justifyContent: "right",
-                    alignItems: "flex-end",
+                    justifyContent: "space-between",
                   }
+                : { width: "40%" }
             }
           >
             <Box>
+              <Box
+                sx={
+                  matches
+                    ? {
+                        display: "flex",
+                        justifyContent: "center",
+                      }
+                    : {}
+                }
+              >
+                <Button
+                  variant="outlined"
+                  sx={{
+                    borderRadius: "50%",
+                    padding: matches ? "1rem" : "2rem",
+                    textTransform: "none !important",
+                  }}
+                  onClick={handleOpen}
+                >
+                  <div>
+                    <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
+                      {"<>"}
+                    </Typography>
+                    <Typography variant="h5">E-Mail</Typography>
+                    <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
+                      {"</>"}
+                    </Typography>
+                  </div>
+                </Button>
+              </Box>
+            </Box>
+            <Box
+              sx={
+                matches
+                  ? {
+                      display: "flex",
+                      justifyContent: "center",
+                    }
+                  : { display: "flex", justifyContent: "flex-end" }
+              }
+            >
               <Button
                 component={Link}
                 sx={{
                   borderRadius: "50%",
-                  padding: "2rem",
+                  padding: matches ? "1rem" : "2rem",
                   textTransform: "none !important",
                 }}
                 variant="outlined"
@@ -188,8 +228,8 @@ const Contact = () => {
                 </div>
               </Button>
             </Box>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </Box>
 
       <Modal

@@ -162,6 +162,7 @@ const Portfolio = () => {
           flexDirection: "column",
           justifyContent: "center",
           gap: "3rem",
+          marginTop: matches ? "3rem" : 0,
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -169,8 +170,8 @@ const Portfolio = () => {
             {"<h2>"}
           </Typography>
 
-          <Typography variant={matches ? "h4" : "h2"}>
-            My Portfolio
+          <Typography variant={matches ? "h3" : "h2"}>
+            Portfolio
             <sub style={{ fontSize: "16px", color: "#a3a2a4" }}>{"</h2>"}</sub>
           </Typography>
         </Box>

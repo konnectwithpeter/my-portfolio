@@ -45,14 +45,9 @@ const LandingText = () => {
           md={7}
           sx={{ display: "flex", flexDirection: "column", gap: "3rem" }}
         >
-          <Typography sx={{ color: "#019e36" }}>
+          <Typography variant="h6" sx={{ color: "#019e36" }}>
             <span style={{ color: "#a3a2a4" }}>{"<p>"}</span>
-            <ReactTyped
-              strings={["This is"]}
-              typeSpeed={100}
-              loop={false}
-              showCursor={false}
-            />
+            <span>This is</span>
             <span style={{ color: "#a3a2a4" }}>{"</p>"}</span>
           </Typography>
           <Typography variant={matches ? "h3" : "h1"} sx={{ color: "#185b33" }}>
@@ -77,11 +72,11 @@ const LandingText = () => {
               </span>
             </span>
           </Typography>
-          <Typography style={{ color: "#a3a2a4" }}>
+          <Typography variant={matches?"h6":"h6"} style={{ color: "#a3a2a4" }}>
             {"<h2>"}
-            <b style={{ color: "#019e36" }}>
-              Web App Developer and Cyber Security enthusiast
-            </b>
+            <span style={{ color: "#019e36",textAlign:"justify" }}>
+              Web App Developer & Cyber Security enthusiast
+            </span>
             {"</h2>"}
           </Typography>
         </Grid>

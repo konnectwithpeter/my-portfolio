@@ -79,12 +79,16 @@ const About = () => {
           {"<h2>"}
         </Typography>
 
-        <Typography variant="h2">
+        <Typography variant={matches ? "h3" : "h2"}>
           About
           <sub style={{ fontSize: "16px", color: "#a3a2a4" }}>{"</h2>"}</sub>
         </Typography>
       </Box>
-      <Paper elevation={8} className={classes.container}>
+      <Paper
+        elevation={8}
+        className={classes.container}
+        sx={{ marginTop: matches ? "0px !important" : "3rem" }}
+      >
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Typography style={{ fontSize: "16px", color: "#a3a2a4" }}>
             {"<h3>"}
@@ -95,7 +99,7 @@ const About = () => {
             <sub style={{ fontSize: "16px", color: "#a3a2a4" }}>{"</h3>"}</sub>
           </Typography>
         </Box>
-        <Typography sx={{ color: "white" }}>
+        <Typography sx={{ color: "white", }}>
           Creative and dedicated web developer with a passion for crafting
           visually stunning and user-friendly websites. Proficient in HTML, CSS,
           and JavaScript, with expertise in ReactJs and python/Django framework.
@@ -114,7 +118,7 @@ const About = () => {
             <sub style={{ fontSize: "16px", color: "#a3a2a4" }}>{"</h3>"}</sub>
           </Typography>
         </Box>
-        <Typography sx={{ color: "white" }}>
+        <Typography sx={{ color: "white", }}>
           Comprehensive understanding of cybersecurity frameworks, tools, and
           best practices. Proven ability to identify vulnerabilities and
           recommend solutions to enhance digital security. Proficient in

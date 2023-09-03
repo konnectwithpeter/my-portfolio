@@ -9,7 +9,6 @@ const TitleBar = () => {
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
-  console.log(matches);
 
   return (
     <Grid
@@ -36,10 +35,13 @@ const TitleBar = () => {
             sx={{ borderRadius: "0px !important", maxWidth: "fit-content" }}
             onMouseLeave={() => setHovered({ ...hoverState, id: null })}
           >
-            //01. {"<Home/>"}
+            <Typography variant={matches ? "subtitle1" : "h6"}>
+              //01. {"<Home/>"}
+            </Typography>
           </Button>
         ) : (
           <Typography
+            variant={matches ? "subtitle1" : "h6"}
             sx={{ cursor: "pointer", paddingTop: "1rem" }}
             onMouseEnter={() => setHovered({ ...hoverState, id: "home" })}
           >
@@ -53,10 +55,13 @@ const TitleBar = () => {
             sx={{ borderRadius: "0px !important", maxWidth: "fit-content" }}
             onMouseLeave={() => setHovered({ ...hoverState, id: null })}
           >
-            //02. {"<Portfolio/>"}
+            <Typography variant={matches ? "subtitle1" : "h6"}>
+              //02. {"<Portfolio/>"}
+            </Typography>
           </Button>
         ) : (
           <Typography
+            variant={matches ? "subtitle1" : "h6"}
             sx={{ cursor: "pointer", paddingTop: "1rem" }}
             onMouseEnter={() => setHovered({ ...hoverState, id: "portfolio" })}
           >
@@ -96,14 +101,17 @@ const TitleBar = () => {
             sx={{ borderRadius: "0px !important", maxWidth: "fit-content" }}
             onMouseLeave={() => setHovered({ ...hoverState, id: null })}
           >
-            //03. {"<Press/>"}
+            <Typography variant={matches ? "subtitle1" : "h6"}>
+              //03. {"<Press/>"}
+            </Typography>
           </Button>
         ) : (
           <Typography
+            variant={matches ? "subtitle1" : "h6"}
             sx={{ cursor: "pointer", paddingTop: "1rem" }}
             onMouseEnter={() => setHovered({ ...hoverState, id: "press" })}
           >
-            //03. {"<Press/>"}
+            //03. {"<About/>"}
           </Typography>
         )}
         {hovered.id === "contact" ? (
@@ -113,10 +121,13 @@ const TitleBar = () => {
             sx={{ borderRadius: "0px !important", maxWidth: "fit-content" }}
             onMouseLeave={() => setHovered({ ...hoverState, id: null })}
           >
-            //04. {"<Contact/>"}
+            <Typography variant={matches ? "subtitle1" : "h6"}>
+              //04. {"<Contact/>"}
+            </Typography>
           </Button>
         ) : (
           <Typography
+            variant={matches ? "subtitle1" : "h6"}
             sx={{ cursor: "pointer", paddingTop: "1rem" }}
             onMouseEnter={() => setHovered({ ...hoverState, id: "contact" })}
           >
